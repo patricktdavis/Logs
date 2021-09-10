@@ -1,0 +1,145 @@
+﻿**********************
+Windows PowerShell transcript start
+Start time: 20210910172341
+Username: \SYSTEM
+RunAs User: \SYSTEM
+Configuration Name: 
+Machine: MININT-3CSU5QP (Microsoft Windows NT 10.0.19041.0)
+Host Application: PowerShell -NoL -C Invoke-WebPSScript 'https://raw.githubusercontent.com/patricktdavis/OSDCloud/main/OSDCloud-Hennepin.ps1'
+Process ID: 1860
+PSVersion: 5.1.19041.1
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.19041.1
+BuildVersion: 10.0.19041.1
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+Transcript started, output file is C:\OSDCloud\Logs\2021-09-10-172341-Deploy-OSDCloud.log
+=========================================================================
+2021-09-10-172341 Download OSDCloud ImageFile
+http://b1.download.windowsupdate.com/c/upgr/2020/12/19042.631.201119-0144.20h2_release_svc_refresh_clientbusiness_vol_x64fre_en-us_9e261a6444c5fe1167d49c4d150488d6a7abed46.esd
+VERBOSE: Test-WebConnection OK: http://b1.download.windowsupdate.com/c/upgr/2020/12/19042.631.201119-0144.20h2_release_svc_refresh_clientbusiness_vol_x64fre_en-us_9e261a6444c5fe1167d49c4d150488d6a7abed46.esd
+VERBOSE: HEAD http://b1.download.windowsupdate.com/c/upgr/2020/12/19042.631.201119-0144.20h2_release_svc_refresh_clientbusiness_vol_x64fre_en-us_9e261a6444c5fe1167d49c4d150488d6a7abed46.esd with 0-byte payload
+VERBOSE: received 4045429686-byte response of content type application/vnd.ms-cab-compressed
+VERBOSE: DestinationDirectory: C:\OSDCloud\OS
+VERBOSE: DestinationName: 19042.631.201119-0144.20h2_release_svc_refresh_CLIENTBUSINESS_VOL_x64FRE_en-us.esd
+VERBOSE: cURL: http://b1.download.windowsupdate.com/c/upgr/2020/12/19042.631.201119-0144.20h2_release_svc_refresh_clientbusiness_vol_x64fre_en-us_9e261a6444c5fe1167d49c4d150488d6a7abed46.esd
+ImageFileTarget: C:\OSDCloud\OS\19042.631.201119-0144.20h2_release_svc_refresh_CLIENTBUSINESS_VOL_x64FRE_en-us.esd
+=========================================================================
+2021-09-10-172450 Expand-WindowsImage
+Expand-WindowsImage -ApplyPath 'C:\' -ImagePath C:\OSDCloud\OS\19042.631.201119-0144.20h2_release_svc_refresh_CLIENTBUSINESS_VOL_x64FRE_en-us.esd -Index 6 -ScratchDirectory 'C:\OSDCloud\Temp'
+
+Boot files successfully created.
+=========================================================================
+2021-09-10-172558 Save-MyDriverPack
+Name: HP ZBook Fury 15/17 G7 Windows 10 x64 Driver Pack 2.00 A 1
+Product: 8783 8780
+FileName: sp110547.exe
+DriverPackUrl: https://ftp.hp.com/pub/softpaq/sp110501-111000/sp110547.exe
+VERBOSE: Manufacturer: HP
+VERBOSE: Product: 8783
+VERBOSE: CatalogState: Local
+VERBOSE: Reading the Local System Catalog at X:\windows\TEMP\CatalogHPDriverPack.xml
+VERBOSE: Source: https://ftp.hp.com/pub/softpaq/sp110501-111000/sp110547.exe
+VERBOSE: Destination: C:\Drivers
+VERBOSE: OutFile: C:\Drivers\sp110547.exe
+VERBOSE: DestinationDirectory: C:\Drivers
+VERBOSE: DestinationName: sp110547.exe
+VERBOSE: cURL: https://ftp.hp.com/pub/softpaq/sp110501-111000/sp110547.exe
+VERBOSE: DriverPack: C:\Drivers\sp110547.exe
+VERBOSE: Perform operation 'Enumerate CimInstances' with following parameters, ''namespaceName' = root\cimv2,'className' = CIM_ComputerSystem'.
+VERBOSE: Operation 'Enumerate CimInstances' complete.
+VERBOSE: HP
+VERBOSE: Perform operation 'Enumerate CimInstances' with following parameters, ''namespaceName' = root\cimv2,'className' = CIM_ComputerSystem'.
+VERBOSE: Operation 'Enumerate CimInstances' complete.
+VERBOSE: HP ZBook Fury 15 G7 Mobile Workstation
+VERBOSE: Test-WebConnection OK: https://www.catalog.update.microsoft.com/Home.aspx
+VERBOSE: HEAD https://www.catalog.update.microsoft.com/Home.aspx with 0-byte payload
+VERBOSE: received 29843-byte response of content type text/html; charset=utf-8
+=========================================================================
+2021-09-10-172651 Save-SystemFirmwareUpdate
+Firmware Updates will be downloaded from Microsoft Update Catalog to C:\Drivers
+If the downloaded Firmware Update is newer than the existing Firmware, it will be installed
+This doesn't always work 100% in testing on some systems
+Command: Save-SystemFirmwareUpdate -DestinationDirectory 'C:\Drivers\Firmware'
+VERBOSE: Test-WebConnection OK: https://www.catalog.update.microsoft.com/Home.aspx
+VERBOSE: HEAD https://www.catalog.update.microsoft.com/Home.aspx with 0-byte payload
+VERBOSE: received 29843-byte response of content type text/html; charset=utf-8
+VERBOSE: Populating RepositorySourceLocation property for module MSCatalog.
+VERBOSE: Loading module from path 'X:\Program Files\WindowsPowerShell\Modules\MSCatalog\0.25.0\MSCatalog.psm1'.
+VERBOSE: Populating RepositorySourceLocation property for module MSCatalog.
+VERBOSE: Loading module from path 'X:\Program Files\WindowsPowerShell\Modules\MSCatalog\0.25.0\MSCatalog.psm1'.
+VERBOSE: Populating RepositorySourceLocation property for module MSCatalog.
+VERBOSE: Loading module from path 'X:\Program Files\WindowsPowerShell\Modules\MSCatalog\0.25.0\MSCatalog.psm1'.
+VERBOSE: Test-WebConnection OK: https://www.catalog.update.microsoft.com/Home.aspx
+VERBOSE: HEAD https://www.catalog.update.microsoft.com/Home.aspx with 0-byte payload
+VERBOSE: received 29843-byte response of content type text/html; charset=utf-8
+VERBOSE: Perform operation 'Enumerate CimInstances' with following parameters, ''namespaceName' = root\cimv2,'className' = Win32_PnpEntity'.
+VERBOSE: Operation 'Enumerate CimInstances' complete.
+HP Inc. - Firmware - 1.5.0.0 version 1.5.0.0
+Version 1.5.0.0 Size: 14.6 MB
+Last Updated 05/02/2021 17:27:03
+UpdateID: 8868567c-8b27-4d27-96fc-33bf497c4f72
+
+VERBOSE: POST https://www.catalog.update.microsoft.com/DownloadDialog.aspx with -1-byte payload
+VERBOSE: received 37171-byte response of content type text/html; charset=utf-8
+DownloadUrl: http://download.windowsupdate.com/c/msdownload/update/driver/drvs/2021/08/3b9462be-4c54-492b-9d02-5b59c4ab0e7f_3941540c8b44bd49fae632cebddbbc5a1becde32.cab
+VERBOSE: DestinationDirectory: C:\Drivers\Firmware
+VERBOSE: DestinationName: 3b9462be-4c54-492b-9d02-5b59c4ab0e7f_3941540c8b44bd49fae632cebddbbc5a1becde32.cab
+VERBOSE: cURL: http://download.windowsupdate.com/c/msdownload/update/driver/drvs/2021/08/3b9462be-4c54-492b-9d02-5b59c4ab0e7f_3941540c8b44bd49fae632cebddbbc5a1becde32.cab
+Microsoft (R) File Expansion Utility
+Copyright (c) Microsoft Corporation. All rights reserved.
+
+Adding C:\Drivers\Firmware\fwu.cer to Extraction Queue
+Adding C:\Drivers\Firmware\fwu.pfx to Extraction Queue
+Adding C:\Drivers\Firmware\fwu.pvk to Extraction Queue
+Adding C:\Drivers\Firmware\S92_01050000.bin to Extraction Queue
+Adding C:\Drivers\Firmware\S92_01050000.cat to Extraction Queue
+Adding C:\Drivers\Firmware\S92_01050000.inf to Extraction Queue
+Adding C:\Drivers\Firmware\S92_01050000.log to Extraction Queue
+
+Expanding Files ....
+
+Expanding Files Complete ...
+7 files total.
+VERBOSE: Test-WebConnection OK: https://www.catalog.update.microsoft.com/Home.aspx
+VERBOSE: HEAD https://www.catalog.update.microsoft.com/Home.aspx with 0-byte payload
+VERBOSE: received 29843-byte response of content type text/html; charset=utf-8
+=========================================================================
+2021-09-10-172706 Save-MsUpCatDriver (Network)
+Drivers for Network devices will be downloaded from Microsoft Update Catalog to C:\Drivers
+Command: Save-MsUpCatDriver -DestinationDirectory 'C:\Drivers' -PNPClass 'Net'
+VERBOSE: Test-WebConnection OK: https://www.catalog.update.microsoft.com/Home.aspx
+VERBOSE: HEAD https://www.catalog.update.microsoft.com/Home.aspx with 0-byte payload
+VERBOSE: received 29843-byte response of content type text/html; charset=utf-8
+VERBOSE: Perform operation 'Query CimInstances' with following parameters, ''queryExpression' = SELECT Name,Description,DeviceID,HardwareID,ClassGuid,Manufacturer,PNPClass FROM Win32_PnpEntity,'queryDialect' = WQL,'namespaceName' = root\cimv2'.
+VERBOSE: Operation 'Query CimInstances' complete.
+VERBOSE: GET https://www.catalog.update.microsoft.com/Search.aspx?q=1903+VEN_8086&DEV_06F0 with 0-byte payload
+VERBOSE: received 129701-byte response of content type text/html; charset=utf-8
+VERBOSE: POST https://www.catalog.update.microsoft.com/Search.aspx?q=1903+VEN_8086&DEV_06F0 with -1-byte payload
+VERBOSE: received 125895-byte response of content type text/html; charset=utf-8
+PS>TerminatingError(): "The term 'Invoke-ParseDate' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the spelling of the name, or if a path was included, verify that the path is correct and try again."
+>> TerminatingError(): "The term 'Invoke-ParseDate' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the spelling of the name, or if a path was included, verify that the path is correct and try again."
+>> TerminatingError(): "The term 'Invoke-ParseDate' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the spelling of the name, or if a path was included, verify that the path is correct and try again."
+>> TerminatingError(): "The term 'Invoke-ParseDate' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the spelling of the name, or if a path was included, verify that the path is correct and try again."
+>> TerminatingError(): "The term 'Invoke-ParseDate' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the spelling of the name, or if a path was included, verify that the path is correct and try again."
+>> TerminatingError(): "The term 'Invoke-ParseDate' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the spelling of the name, or if a path was included, verify that the path is correct and try again."
+>> TerminatingError(): "The term 'Invoke-ParseDate' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the spelling of the name, or if a path was included, verify that the path is correct and try again."
+>> TerminatingError(): "The term 'Invoke-ParseDate' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the spelling of the name, or if a path was included, verify that the path is correct and try again."
+>> TerminatingError(): "The term 'Invoke-ParseDate' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the spelling of the name, or if a path was included, verify that the path is correct and try again."
+The term 'Invoke-ParseDate' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+Invoke-ParseDate : The term 'Invoke-ParseDate' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
+At X:\Program Files\WindowsPowerShell\Modules\OSD\21.8.27.1\Classes\MsUpCat.Class.ps1:19 char:30
++         $this.LastUpdated = (Invoke-ParseDate -DateString $Cells[4].i ...
++                              ~~~~~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (Invoke-ParseDate:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+PS>$global:?
+False
+**********************
+Windows PowerShell transcript end
+End time: 20210910172709
+**********************

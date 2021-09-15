@@ -1,0 +1,89 @@
+﻿**********************
+Windows PowerShell transcript start
+Start time: 20210914200253
+Username: \SYSTEM
+RunAs User: \SYSTEM
+Configuration Name: 
+Machine: MININT-OI1DVPQ (Microsoft Windows NT 10.0.19041.0)
+Host Application: PowerShell -Nol -W Mi
+Process ID: 2156
+PSVersion: 5.1.19041.1
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.19041.1
+BuildVersion: 10.0.19041.1
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+================================================
+2021-09-14-200253 Download OSDCloud ImageFile
+http://wsus.ds.b1.download.windowsupdate.com/c/upgr/2020/12/19042.631.201119-0144.20h2_release_svc_refresh_clientbusiness_vol_x64fre_en-us_9e261a6444c5fe1167d49c4d150488d6a7abed46.esd
+ImageFileTarget: C:\OSDCloud\OS\19042.631.201119-0144.20h2_release_svc_refresh_CLIENTBUSINESS_VOL_x64FRE_en-us.esd
+================================================
+2021-09-14-203936 Expand-WindowsImage
+Expand-WindowsImage -ApplyPath 'C:\' -ImagePath C:\OSDCloud\OS\19042.631.201119-0144.20h2_release_svc_refresh_CLIENTBUSINESS_VOL_x64FRE_en-us.esd -Index 6 -ScratchDirectory 'C:\OSDCloud\Temp'
+================================================
+2021-09-14-204114 Save-MyDriverPack
+Name: HP EliteBook x360 1040 G6 Windows 10 Driver Pack 8.00 A 1
+Product: 857f
+FileName: sp111424.exe
+DriverPackUrl: https://ftp.hp.com/pub/softpaq/sp111001-111500/sp111424.exe
+VERBOSE: Source: https://ftp.hp.com/pub/softpaq/sp111001-111500/sp111424.exe
+VERBOSE: Destination: C:\Drivers
+VERBOSE: OutFile: C:\Drivers\sp111424.exe
+VERBOSE: DriverPack: C:\Drivers\sp111424.exe
+================================================
+2021-09-14-204244 Save-SystemFirmwareUpdate
+Firmware Updates will be downloaded from Microsoft Update Catalog to C:\Drivers
+If the downloaded Firmware Update is newer than the existing Firmware, it will be installed
+This doesn't always work 100% in testing on some systems
+Command: Save-SystemFirmwareUpdate -DestinationDirectory 'C:\Drivers\Firmware'
+HP Inc. - Firmware - 1.9.0.0 version 1.9.0.0
+Version 1.9.0.0 Size: 13.2 MB
+Last Updated 04/21/2021 20:42:45
+UpdateID: 7775d84a-12dc-4040-b098-7bbe46cdc629
+
+DownloadUrl: http://download.windowsupdate.com/c/msdownload/update/driver/drvs/2021/08/7e04e666-87f8-45f9-84d0-158591f1ed29_be2fbc650eb8befdc3b62e400db533a123693f15.cab
+================================================
+2021-09-14-204248 Save-MsUpCatDriver (Network)
+Drivers for Network devices will be downloaded from Microsoft Update Catalog to C:\Drivers
+Command: Save-MsUpCatDriver -DestinationDirectory 'C:\Drivers' -PNPClass 'Net'
+Net Intel(R) Wi-Fi 6 AX200 160MHz
+HardwareID: VEN_8086&DEV_2723
+SearchString: VEN_8086%26DEV_2723
+Intel - net - 22.70.0.6 version 22.70.0.6
+Version 22.70.0.6 Size: 9.3 MB
+Last Updated 06/28/2021 20:42:50
+UpdateID: e8163fe2-bdb4-454e-bdbc-c44f00bcd4cf
+DestinationPath: C:\Drivers\Net\e8163fe2-bdb4-454e-bdbc-c44f00bcd4cf
+DownloadUrl: http://download.windowsupdate.com/c/msdownload/update/driver/drvs/2021/07/0f21f9de-1785-4b2b-bfd0-77f0b47f4fd8_941b9ef427d986dac7efe660423328a21d5893b4.cab
+=================================================================
+2021-09-14-204254 Add-WindowsDriver.offlineservicing
+Drivers in C:\Drivers are being added to the offline Windows Image
+This process can take up to 20 minutes
+Command: Add-WindowsDriver.offlineservicing
+VERBOSE: Target Image Version 10.0.19042.631
+=================================================================
+2021-09-14-204302 Set-OSDCloudUnattendSpecialize
+C:\Windows\Panther\Invoke-OSDSpecialize.xml is being applied as an Unattend file
+This will enable the extraction and installation of HP and Lenovo Drivers if necessary
+Command: Set-OSDCloudUnattendSpecialize
+VERBOSE: Setting C:\Windows\Panther\Invoke-OSDSpecialize.xml
+VERBOSE: Setting Unattend in Offline Registry
+Invoke-Exe 'reg' Arguments 'load HKLM\TempSYSTEM C:\Windows\System32\Config\SYSTEM'
+The operation completed successfully.
+Invoke-Exe 'reg' Arguments 'add HKLM\TempSYSTEM\Setup /v UnattendFile /d C:\Windows\Panther\Invoke-OSDSpecialize.xml /f'
+The operation completed successfully.
+Invoke-Exe 'reg' Arguments 'unload HKLM\TempSYSTEM'
+The operation completed successfully.
+=================================================================
+2021-09-14-204302 Save-OSDCloudOfflineModules
+PowerShell Modules and Scripts
+================================================
+2021-09-14-204324 Invoke-OSDCloud
+Completed in 40 minutes 57 seconds!
+================================================
+Screenshots: C:\OSDCloud\ScreenPNG
+WARNING: WinPE is restarting in 30 seconds
+WARNING: Press CTRL + C to cancel
